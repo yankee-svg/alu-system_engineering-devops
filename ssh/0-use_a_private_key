@@ -2,4 +2,5 @@
 # Define the server address (replace this with your server's IP or hostname)
 PRIVATE_KEY="~/.ssh/school"
 SERVER_ADDRESS="your_server_address"
-ssh -i $PRIVATE_KEY ubuntu@$SERVER_ADDRESS
+# ssh -i $PRIVATE_KEY ubuntu@$SERVER_ADDRES
+ssh -i ~/.ssh/school ubuntu@localhost
