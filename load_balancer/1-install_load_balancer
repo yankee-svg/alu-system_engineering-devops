@@ -15,17 +15,17 @@ sudo cp /etc/haproxy/haproxy.cfg /etc/haproxy/haproxy.cfg.bak
 # sudo truncate -s 0 /etc/haproxy/haproxy.cfg
 
 # Check if the configuration for frontend and backend exists
-if ! grep -q "frontend eddy-frontend" /etc/haproxy/haproxy.cfg; then
+if ! grep -q "frontend emery-frontend" /etc/haproxy/haproxy.cfg; then
     # Add frontend and backend configuration
-    server_config="frontend eddy-frontend
+    server_config="frontend emery-frontend
         bind *:80
         mode http
-        default_backend eddy-backend
+        default_backend emery-backend
 
     backend eddy-backend
         balance roundrobin
-        server 6310-web-01 3.93.220.110:80 check
-        server 6310-web-02 54.89.213.49:80 check"
+        server 6436-web-01 54.174.91.27 check
+        server 6436-web-02 54.234.170.197 check"
     
     # Append the configuration to haproxy.cfg
     echo "$server_config" | sudo tee -a /etc/haproxy/haproxy.cfg
